@@ -25,6 +25,7 @@ def dashboard_admin():
     data = {
         "total_usuarios": Usuario.total(),
         "total_peluqueros": Peluquero.total(),
+        "peluqueros_activos": Peluquero.total_activos(),
         "total_citas_hoy": Cita.hoy(),
         "pedidos_pendientes": Pedido.pendientes(),
         "ultimas_citas": Cita.ultimas_admin(5)

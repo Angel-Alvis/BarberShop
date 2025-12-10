@@ -36,6 +36,7 @@ class Peluquero:
         for p in results:
             peluqueros.append(cls(p))
         return peluqueros
+    
 
     # ============================
     # INSERTAR
@@ -90,7 +91,7 @@ class Peluquero:
         return result[0]['total']
 
     @classmethod
-    def contar_activos(cls):
-        query = "SELECT COUNT(id) AS total FROM peluqueros WHERE activo = 1;"
-        result = connectToMySQL(cls.db).query_db(query)
-        return result[0]["total"] if result else 0
+    def total_activos(cls):
+        query = "SELECT COUNT(*) AS total FROM peluqueros WHERE disponible = 1;"
+        result = connectToMySQL('barbershop_db').query_db(query)
+        return result[0]['total']
